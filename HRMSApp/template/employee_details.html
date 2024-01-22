@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Details</title>
+</head>
+<body>
+    <h1>{{ employee.name }} - Employee Details</h1>
+    
+    <h2>Attendance Details</h2>
+    <ul>
+        {% for attendance in attendance_details %}
+            <li>
+                Date: {{ attendance.date }} |
+                {% if attendance.is_present %}
+                    Status: Present |
+                    Check-in: {{ attendance.check_in_time }} |
+                    Check-out: {{ attendance.check_out_time }} |
+                    Work Duration: {{ attendance.work_duration }}
+                {% else %}
+                    Status: Absent
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>
